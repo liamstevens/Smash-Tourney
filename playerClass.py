@@ -1,5 +1,4 @@
 import math
-import hashlib
 class player:
     def __init__(self, name):
         self._name = name

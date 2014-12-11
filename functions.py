@@ -1,10 +1,9 @@
 import playerClass
 import math
-import hashlib
 
 #Perform ELO evaluation for a large number of matches.
 #Matches must be in a list of tuples. Tuples contain references to each player, and another reference to the winner. Draws are incredibly rare in smash so are not accounted for.
-def multiple(list):
+def multiple(tupList):
     for i in list:
         if i[0] is i[2]:
             #allows for identical players, unlikely to be needed but is good design in a robust system
@@ -17,4 +16,14 @@ def multiple(list):
         else:
             #should not happen if input is correct, throw an exception
             #TODO: exception
-        
+
+
+#Modify character specific stats for a player.
+#Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
+def modChars(charList):
+    #TODO: this
+
+
+
+#Global character ELO rankings modifier. Called whenever a match is used to update player rankings
+#TODO: this as well
