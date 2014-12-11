@@ -1,11 +1,15 @@
-#import math
-
+import math
+import hashlib
 class player:
     def __init__(self, name):
         self._name = name
         self.rating = 1450
         self.main = None
         self._characters = {}
+
+    def __str__(self):
+        return "Name: "+self._name+" Rating: "+self.rating+ " Main: "+self.main
+
     #Perform ELO evaluation for two players based on win or loss (win is 1, loss is 0)
     def matchup(self, player, result):
         selfExpected = 1/(1=10**((self.rating-player.rating)/400))
@@ -15,7 +19,4 @@ class player:
         k = 200*math.exp(-0.001*self.rating)
         self.rating += K(result-selfExpected)
     
-    #Perform ELO evaluation for a large number of matches.
-    #Matches must be in a list of tuples. Tuples contain references to each player, and another reference to the winner. Draws are incredibly rare in smash so are not accounted for.
-    def multiple
 
