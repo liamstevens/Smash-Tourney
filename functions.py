@@ -21,7 +21,7 @@ def multiple(tupList):
 #Modify character specific stats for a player.
 #Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
 def modChars(charList):
-    #TODO: this
+    #TODO:
 
 
 
