@@ -33,6 +33,25 @@ function multiple($tupList) {
     }
 }
 
+//Takes characters for each game in a match and does ELO evaluations for each game.
+//List contains tuples with 3 characters: 1st, 2nd, winner
+function modChars($charList) {
+    foreach ($charList as $char) {
+        if ($char->getIndex(0) == $char->getIndex(2)) {
+            $char->getIndex(0)->matchup($char->getIndex(1), 1);
+            $char->getIndex(1)->matchup($char->getIndex(0), 0);
+        } elseif ($char->getIndex(1) == $char->getIndex(2)) {
+            $char->getIndex(1)->matchup($char->getIndex(0), 1);
+            $char->getIndex(0)->matchup($char->getIndex(1), 0);
+        } else {
+            #Can only result in this case from bad input. Exception thrown.
+            #TODO: exceptions in PHP???
+        }
+
+
+    }
+}
+
  ?>
 
 
@@ -40,8 +59,7 @@ function multiple($tupList) {
 #Modify character specific stats for a player.
 #Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
 def modChars(charList):
-    #TODO:
-
+    
 
 
 #Global character ELO rankings modifier. Called whenever a match is used to update player rankings
