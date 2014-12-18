@@ -52,10 +52,16 @@ function modChars($charList) {
     }
 }
 
- ?>
-
-
-
+ 
+//
+function addCharRes($result, $player) {
+    if($result) {
+       $player->wins++;
+    } else {
+        $player->losses++;
+    }
+}
+?>
 #Modify character specific stats for a player.
 #Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
 def modChars(charList):
