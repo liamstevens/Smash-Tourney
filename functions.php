@@ -53,7 +53,7 @@ function modChars($charList) {
 }
 
  
-//
+//Updates player statistics given a player object and an integer for representing the result
 function addCharRes($result, $player) {
     if($result) {
        $player->wins++;
@@ -61,6 +61,9 @@ function addCharRes($result, $player) {
         $player->losses++;
     }
 }
+
+
+
 ?>
 #Modify character specific stats for a player.
 #Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
