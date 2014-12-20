@@ -1,18 +1,18 @@
 <?php
-
+//Class for representing players.
 class playerClass {
 
     public function _construct($playName) {
         $this->name = $playName;
         $this->rating = 1450;
-        $this->main = NULL;
+        $this->main = [];
         $this->characters = [];
     }
-
+//Adds a main to a player
     public function addMain($newMain) {
         $this->main = $newMain;
     }
-//Updates the
+//Updates the rating of the player
     public function updateRating($update) {
         $this->rating += $update;
     }
