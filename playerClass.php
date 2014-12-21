@@ -23,8 +23,7 @@ class playerClass {
 
 //This function takes another player, and a float, representing the ratio of games won to lost
     public function matchup($player, $result) {
-        $thisExpected = 1/(1+10**(($this->rating-$player->rating)/400));
-        $otherExpected = 1/(1+10**(($player->rating-$this->rating)/400));
+        $thisExpected = 1/(1+10**(($player->rating-$this->rating)/400));
         #scaling factor (k) is given as a function of rating to make upper rankings closer together, and make it harder to climb past a certain point
         #k = 200e**-(0.001x)
         $k = 200*exp(-0.001*$this->rating);
