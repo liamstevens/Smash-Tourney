@@ -52,6 +52,9 @@ function modChars($charList) {
     }
 }
 
+
+
+
  
 //Updates player statistics given a player object and an integer for representing the result
 function addCharRes($result, $player) {
@@ -63,13 +66,30 @@ function addCharRes($result, $player) {
 }
 
 
+//Uses previous functions to update database for an entire match (players, characters, maps)
+//$matchlist is a list of tuples, each tuple consisting of an associative list and a player.
+//The associative list contains the player and the character they played.
+
+//May need server queries to create instance objects to represent players, and characters.
+function updateMatch($matchList) {
+    $playerOne = 0;
+    $playerTwo = 0;
+    foreach ($matchList as $tuple) {
+        if (($tuple->getIndex(0))->getIndex(0) == $tuple->getIndex(2)) {
+            $playerOne++;
+        } elseif (($tuple->getIndex(1))->getIndex(0) == $tuple->getIndex(2)) {
+            $playerTwo++;
+        }
+    }
+    $playerOne = float($playerOne)/3;
+    $playerTwo = float($playerTwo)/3;
+
+    //Do database queries for rating and then call the "multiple" function to recalculate values.
+    //Functions may need to be modified to return integers rather than altering objects, but could
+    //also implement functions to send data to the database from objects easily enough.
+
+
+    //Character ELO ranking changes need to be done too.
+}
 
 ?>
-#Modify character specific stats for a player.
-#Format is a list of tuples. Each tuple contains character name, number of wins, and number of losses.
-def modChars(charList):
-    
-
-
-#Global character ELO rankings modifier. Called whenever a match is used to update player rankings
-#TODO: this as well
