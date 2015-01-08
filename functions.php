@@ -21,10 +21,12 @@ class tupleClass {
 //Draws are not accounted for as they are exceedingly rare in Smash.
 function multiple($tupList) {
     foreach ($tupList as $tuple) {
-        if ($tuple->getIndex(0) == $tuple->getIndex(2)) {
-            $tuple->getIndex(0)->matchup($tuple->getIndex(1), 1);
+        //should be changed as the form submission will return an associative array. SQL queries will be needed too.
+        if ($tuple->getIndex(0) == $tuple->getIndex(2)) {//will be array[playerOne] == array[winner]
+            //temporary objects for players will need to be created.
+            $tuple->getIndex(0)->matchup($tuple->getIndex(1), 1);//should be changed to use a float as the result.
             $tuple->getIndex(1)->matchup($tuple->getIndex(0), 0);
-        } elseif ($tuple->getIndex(1) == $tuple->getIndex(2)) {
+        } elseif ($tuple->getIndex(1) == $tuple->getIndex(2)) {//will be array[playerTwo] == array[winner]
             $tuple->getIndex(1)->matchup($tuple->getIndex(0), 1);
             $tuple->getIndex(0)->matchup($tuple->getIndex(1), 0);
         } else {
@@ -35,6 +37,9 @@ function multiple($tupList) {
 
 //Takes characters for each game in a match and does ELO evaluations for each game.
 //List contains tuples with 3 characters: 1st, 2nd, winner
+
+
+//Will probably need to be redone with associative arrays and SQL queries.
 function modChars($charList) {
     foreach ($charList as $char) {
         if ($char->getIndex(0) == $char->getIndex(2)) {
@@ -47,14 +52,8 @@ function modChars($charList) {
             #Can only result in this case from bad input. Exception thrown.
             #TODO: exceptions in PHP???
         }
-
-
     }
 }
-
-
-
-
  
 //Updates player statistics given a player object and an integer for representing the result
 function addCharRes($result, $player) {
@@ -64,7 +63,6 @@ function addCharRes($result, $player) {
         $player->losses++;
     }
 }
-
 
 //Uses previous functions to update database for an entire match (players, characters, maps)
 //$matchlist is a list of tuples, each tuple consisting of an associative list and a player.
